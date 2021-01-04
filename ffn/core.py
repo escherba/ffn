@@ -158,7 +158,7 @@ class PerformanceStats(object):
         self.return_table = {}
         # end default values
 
-        if len(obj) is 0:
+        if len(obj) == 0:
             return
 
         self.start = obj.index[0]
@@ -181,7 +181,7 @@ class PerformanceStats(object):
         mp = self.monthly_prices
         yp = self.yearly_prices
 
-        if len(dp) is 1:
+        if len(dp) == 1:
             return
 
         # stats using daily data
@@ -1189,11 +1189,11 @@ def drawdown_details(drawdown, index_type=pd.DatetimeIndex):
     end = is_zero & (~is_zero).shift(1)
     end = list(end[end == True].index)  # NOQA
 
-    if len(start) is 0:
+    if len(start) == 0:
         return None
 
     # drawdown has no end (end period in dd)
-    if len(end) is 0:
+    if len(end) == 0:
         end.append(drawdown.index[-1])
 
     # if the first drawdown start is larger than the first drawdown end it
